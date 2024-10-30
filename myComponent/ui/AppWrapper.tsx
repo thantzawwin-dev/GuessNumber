@@ -1,34 +1,38 @@
 import React, { PropsWithChildren } from "react";
 import {
   View,
-  StatusBar,
+  // StatusBar,
   Text,
   StyleSheet,
   ImageBackground,
   // SafeAreaView,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Colors from "@/constants/color";
 type Props = PropsWithChildren & {};
 
 const AppWrapper = ({ children }: Props) => {
   return (
-    <LinearGradient
-      style={styles.wrapper}
-      colors={[Colors.primary700, Colors.accent500]}
-    >
-      <ImageBackground
-        source={require("@/assets/images/riho-kroll-unsplash.jpg")}
+    <>
+      <StatusBar style="light" />
+      <LinearGradient
         style={styles.wrapper}
-        imageStyle={styles.backgroundImage}
+        colors={[Colors.primary700, Colors.accent500]}
       >
-        <SafeAreaView style={styles.wrapper}>
-          <StatusBar barStyle="light-content" />
-          {children}
-        </SafeAreaView>
-      </ImageBackground>
-    </LinearGradient>
+        <ImageBackground
+          source={require("@/assets/images/riho-kroll-unsplash.jpg")}
+          style={styles.wrapper}
+          imageStyle={styles.backgroundImage}
+        >
+          <SafeAreaView style={styles.wrapper}>
+            {/* <StatusBar barStyle="light-content" /> */}
+            {children}
+          </SafeAreaView>
+        </ImageBackground>
+      </LinearGradient>
+    </>
   );
 };
 
